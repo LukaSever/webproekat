@@ -1,0 +1,20 @@
+#tabela
+{
+    border: solid 2px black;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+th,
+td
+{
+    border: solid 2px black;
+}
+
+td
+{
+    width: 150px;
+    text-align: left;
+    vertical-align: top;
+    padding: 10px;
+}

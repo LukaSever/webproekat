@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apitoken"
+          content="g8s8XTo7dmj20ZbVrPbukZ4F7MG4Rqc6MTeQzRKgsffWwAYi1Mdwzqmr6gFxTVj0eWCkWK8ek4Hj82WGISl8M0RE3o">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Luke Sever</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+
+        var form = new FormData();
+        form.append("slika", fileInput.files[0], "dusan_rajcevic_2016.jpg");
+        form.append("slug", "radi");
+        form.append("naslov", "Radi");
+        form.append("opis", "Some description");
+        form.append("kratakOpis", "Radi");
+        form.append("apitoken", $('meta[name="apitoken"]').attr('content'));
+
+        $.ajax
+        ({
+            "url": "https://vsis.mef.edu.rs/projekat/ulaznice/public_html/api/dogadjaj",
+            "method": "POST",
+            "timeout": 0,
+            "headers":
+                {
+                "Accept": "application/json",
+                "Authorization": "Bearer" + localStorage.getItem('token')
+                },
+            "processData": false,
+            "mimeType": "multipart/form-data",
+            "contentType": false,
+            "data": form,
+            "success": function (response)
+            {
+                console.log(response);
+            },
+            "error": function (response)
+            {
+                console.log(response);
+            }
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>
