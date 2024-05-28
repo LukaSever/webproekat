@@ -1,0 +1,11 @@
+#tabela
+{
+    border: solid 2px black;
+    border-collapse: collapse;
+}
+
+th,
+td
+{
+    border: solid 2px black;
+}

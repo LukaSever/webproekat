@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="apitoken"
+          content="g8s8XTo7dmj20ZbVrPbukZ4F7MG4Rqc6MTeQzRKgsffWwAYi1Mdwzqmr6gFxTVj0eWCkWK8ek4Hj82WGISl8M0RE3o">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Luke Sever</title>
+    <link rel="stylesheet" href="tabela.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $.ajax
+        ({
+            "url": "https://vsis.mef.edu.rs/projekat/ulaznice/public_html/api/uloga?apitoken="+ $('meta[name="apitoken"]').attr('content'),
+            "method": "GET",
+            "timeout": 0,
+            "headers":
+                {
+                "Accept": "application/json",
+                "Authorization": "Bearer " + localStorage.getItem('token')
+                },
+            "success": function (response)
+            {
+                response.forEach((element, index) => {
+                    $('#tabela').append('<tr><td>'+element.id+'</td><td>'+element.naziv+'</td><td>'+element.opis+'</td><td> <a href="#" class="korisnik">'+element.naziv.length+'</td></tr>')
+                })
+                console.log(response);
+            },
+            "error": function (response)
+            {
+                console.log(response);
+            }
+        });
+    </script>
+</head>
+<body>
+<div>
+<table id="tabela">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Naziv</th>
+            <th>Opis</th>
+            <th>Broj</th>
+        </tr>
+    </thead>
+</table>
+</div>
+</body>
+</html>
